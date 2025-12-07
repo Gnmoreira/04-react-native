@@ -1,19 +1,24 @@
 import { View, Text, Button, StyleSheet } from 'react-native';
 import { useContador } from '../context/ContadorContext';
 import { useRouter } from 'expo-router';
-// importa os hooks e funcoes
-export default function Incrementar() {
-    const { valor, incrementar } = useContador();
+// importar os hooks e funcoes
+export default function Decrementar() {
+    const { valor, decrementar } = useContador();
     const router = useRouter();
-    //chama a funcao de incrementar
+//chama a funcao decrementar
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Valor atual: {valor}</Text>
-            <Button title="Incrementar" onPress={incrementar} />
+
+           
+            <Button title="Decrementar" onPress={decrementar} />
+
+            
             <Button title="Voltar" onPress={() => router.push("/")} />
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         padding: 20,
@@ -24,5 +29,4 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginBottom: 20
     },
-
 });
